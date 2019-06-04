@@ -104,19 +104,19 @@ the board will be printed as follows, you can use emojis instead of characters
 if you want.  Bonus points for coloring the squares so they're easier to read.
 
 ```
-    0 1 2 3 4 5 6 7 8 9
-  +---------------------+
-0 | _  1  B  1  #  #  # |
-1 | _  1  1  1  2  3  2 |
-2 | 1  1  1  X  B  F  F |
-3 | 1  B  1  _  _  _  _ |
-4 | 1  1  1  _  _  _  _ |
-5 | _  _  _  _  _  _  _ |
-6 | _  _  _  *  _  _  _ |
-7 | _  _  _  _  _  _  _ |
-8 | _  B  _  _  _  _  _ |
-9 | _  _  _  _  _  _  _ |
-  +---------------------+
+    0  1  2  3  4  5  6  7  8  9
+  +------------------------------+
+0 | _  1  B  1  #  #  #  _  _  _ |
+1 | _  1  1  1  2  3  2  _  _  _ |
+2 | 1  1  1  X  B  F  F  _  _  _ |
+3 | 1  B  1  _  _  _  _  _  _  _ |
+4 | 1  1  1  _  _  _  _  _  _  _ |
+5 | _  _  _  _  _  _  _  _  _  _ |
+6 | _  _  _  *  _  _  _  _  _  _ |
+7 | _  _  _  _  _  _  _  _  _  _ |
+8 | _  B  _  _  _  _  _  _  _  _ |
+9 | _  _  _  _  _  _  _  _  _  _ |
+  +------------------------------+
 ```
 
 _note_: this is not a complete "final board" -- all the squares should be
