@@ -8,12 +8,11 @@ class Board:
     It likely takes some amount of values and creates a new
     board with it.  I dunno."""
 
-    def __init__(self, w, h, b=0, f='', seed=random.seed()):
+    def __init__(self, w, h, b, rand):
         self.width = w
         self.height = h
         self.bombs = b
-        self.filename = f
-        self.seed = seed
+        self.rand = rand
         self.data = [['_'] * self.width for _ in range(self.height)]
         self.bomb_data = [['_'] * self.width for _ in range(self.height)]
 
@@ -88,8 +87,23 @@ def make_dimensions() -> Tuple[int, int, int]:
     return (w, h, b)
 
 
+def make_seed(rand):
+    s_input = input("****** enter the random seed:")
+    seed = int(s_input)
+    rand.seed(seed)
+
+
+def play_game(rand):
+    w, h, b = make_dimensions()
+    gameboard = Board(w, h, b, rand)
+    gameboard.print_board()
+    gameboard.create_bomb_data()
+    gameboard.print_bomb_board()
+
+
 def main():
 
+    rand = random.Random()
     choice = ''
     while choice != 'q' or choice != 'quit':
         print("\n- (s)tart game")
@@ -102,25 +116,18 @@ def main():
 
         # Respond to the user's choice.
         if choice == 's' or choice == 'start game':
-            # enter prompts
-            pass
+            play_game(rand)
         elif choice == 'l' or choice == 'load game':
             # enter prompts
             pass
         elif choice == 'r' or choice == 'seed random':
-            # enter prompts
-            pass
+            make_seed(rand)
         elif choice == 'q' or choice == 'quit':
             print("\nLeaving the game...Goodbye!\n")
             return 0
         else:
             print("\nIncorrect prompt. Please try again.\n")
 
-    w, h, b = make_dimensions()
-    gameboard = Board(w, h, b, f, seed)
-    gameboard.print_board()
-    gameboard.create_bomb_data()
-    gameboard.print_bomb_board()
     return 0
 
 
