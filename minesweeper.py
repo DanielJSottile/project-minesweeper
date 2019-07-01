@@ -1,4 +1,5 @@
 import random
+from typing import Tuple
 # import collections
 
 
@@ -53,6 +54,40 @@ class Board:
         return 0
 
 
+def enter_integer(s: str) -> int:
+    while True:
+        input_s = input(s)
+        if not input_s.isdigit():
+            print("!!! must be a positive integer")
+        i = int(input_s)
+        if i < 1:
+            print("!!! must be a positive integer")
+        return i
+
+
+def make_dimensions() -> Tuple[int, int, int]:
+    while True:
+        w = enter_integer("****** enter a width:")
+        if w > 10:
+            print("!!! the board dimension must not be larger than 10")
+            continue
+        break
+    while True:
+        h = enter_integer("****** enter a hight:")
+        if h > 10:
+            print("!!! the board dimension must not be larger than 10")
+            continue
+        break
+    while True:
+        b = enter_integer("****** enter the number of bombs:")
+        if b >= (w * h) - 9:
+            # there must be at least 9 tiles clicked around 1st
+            print("!!! number of bombs exceeds the size of the board")
+            continue
+        break
+    return (w, h, b)
+
+
 def main():
 
     choice = ''
@@ -81,7 +116,8 @@ def main():
         else:
             print("\nIncorrect prompt. Please try again.\n")
 
-    gameboard = Board(int(w), int(h), int(b), f, seed)
+    w, h, b = make_dimensions()
+    gameboard = Board(w, h, b, f, seed)
     gameboard.print_board()
     gameboard.create_bomb_data()
     gameboard.print_bomb_board()
